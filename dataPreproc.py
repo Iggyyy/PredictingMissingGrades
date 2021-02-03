@@ -9,7 +9,7 @@ subjects = set()
 
 #------READING FROM TRAINING FILE
 i = 0
-how_many_to_read=10000
+how_many_to_read=20000
 for x in f:
     if i >= how_many_to_read: break
     i+=1
@@ -45,9 +45,22 @@ for rec in data:
 
 print(training_data[0], labels[0])
 
+
+training_labels = list()
+for l in labels:
+    arr = np.zeros(8)
+
+
+
+
+
 print("--Training data processed succesfully--")
 """
 Return 2 values, t_data and t_labels
 """
 def getTrainingData():
-    return training_data, labels
+    return np.array(training_data[0:15000]), np.array(labels[0:15000])
+def getTestingData():
+    return np.array(training_data[15000:20000]), np.array(labels[15000:20000])
+
+print(type(np.array(training_data[0:15000])))
